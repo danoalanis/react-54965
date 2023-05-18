@@ -4,6 +4,7 @@ import LabelComponent from "./components/LabelComponent";
 import ButtonComponent from "./components/ButtonComponent";
 
 const App = () => {
+  // El count es el estado inicial y el setCount es la funcion que se usa para actualizar ese estado
   const [count, setCount] = useState(0);
 
   const handleSumar = () => {
