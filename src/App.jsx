@@ -1,43 +1,38 @@
+import { useState } from "react";
 import "./App.css";
+import LabelComponent from "./components/LabelComponent";
+import ButtonComponent from "./components/ButtonComponent";
 
-//Estilos tipo Css in JS
-const condition = false;
-const inLineStyle = {
-  backgroundColor: condition ? "red" : "blue",
-  color: "black",
-};
+const App = () => {
+  const [count, setCount] = useState(0);
 
-function App() {
-  const myFunction = () => {
-    let result = null;
-    if (!condition) {
-      result = "true";
-    } else {
-      result = "false";
-    }
-    console.log(result);
+  const handleSumar = () => {
+    setCount(count + 1);
+  };
+
+  const handleRestar = () => {
+    setCount(count - 1);
   };
 
   return (
     <div className="App">
-      <button
-      /*Estilos en linea */
-        style={{ backgroundColor: "green", color: "black", fontSize: "1rem" }}
-        onClick={myFunction}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100vw",
+          height: "100vh",
+        }}
       >
-        Hola Mundo
-      </button>
-      <div style={inLineStyle}>test</div>
-      {/* Clases en CSS */}
-      <div className="my-class">
-        {condition ? (
-          <strong>true</strong>
-        ) : (
-          <div style={{ color: "red" }}>false</div>
-        )}
+        <button onClick={handleRestar}>-</button>
+        <span>{count}</span>
+        <button onClick={handleSumar}>+</button>
+        <ButtonComponent />
+        <LabelComponent />
       </div>
     </div>
   );
-}
+};
 
 export default App;
