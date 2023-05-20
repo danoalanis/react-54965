@@ -1,11 +1,7 @@
 import React from 'react'
-
-const ButtonComponent = () => {
-    const handleSaludo = () => {
-        console.log("Hola soy un componente boton")
-    }
+const ButtonComponent = ({label, handleClick, customStyles, object}) => {
   return (
-    <button onClick={handleSaludo}>Componente boton</button>
+    <button style={customStyles} onClick={handleClick}>{label}</button>
   )
 }
 
