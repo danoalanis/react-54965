@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div className="App">
       <NavBar />
-      <ItemListContainer greeting="Hola a todos, soy un componente react"/>
+      <ItemListContainer greeting="Bienvenidos a mi E-Commerce"/>
     </div>
   );
 };
