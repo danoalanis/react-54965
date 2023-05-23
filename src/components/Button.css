@@ -1,0 +1,15 @@
+.boton-default {
+    background-color: grey;
+}
+
+.boton-compra {
+    background-color: red;
+}
+
+.boton-carrito {
+    background-color: blue;
+}
+
+.boton-eliminar {
+    background-color: purple;
+}
