@@ -1,12 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const ButtonComponent = () => {
-    const handleSaludo = () => {
-        console.log("Hola soy un componente boton")
-    }
+const ButtonComponent = ({ label, customStyles, handleSaludo }) => {
   return (
-    <button onClick={handleSaludo}>Componente boton</button>
-  )
-}
+    <button style={customStyles} onClick={handleSaludo}>
+      {label}
+    </button>
+  );
+};
 
-export default ButtonComponent
+export default ButtonComponent;
