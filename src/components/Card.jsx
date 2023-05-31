@@ -1,72 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Button, Card } from "react-bootstrap";
 
-const productos = [
-  {
-    id: 1,
-    nombre: "Producto 1",
-    descripcion: "Esta es la descripción del producto 1",
-    precio: 100,
-  },
-  {
-    id: 2,
-    nombre: "Producto 2",
-    descripcion: "Esta es la descripción del producto 2",
-    precio: 200,
-  },
-  {
-    id: 3,
-    nombre: "Producto 3",
-    descripcion: "Esta es la descripción del producto 3",
-    precio: 300,
-  },
-  {
-    id: 4,
-    nombre: "Producto 4",
-    descripcion: "Esta es la descripción del producto 5",
-    precio: 400,
-  },
-];
-
-const Card = ({ categoria, subCategoria }) => {
-  const [dataProducts, setDataProducts] = useState([]);
+const CardComponent = () => {
+  const [productsData, setProductsData] = useState([]);
 
   useEffect(() => {
-    // Llamada de tipo GET (vamos a usar el metodo/verb GET)
-    axios.get("https://dummyjson.com/products").then((res) => {
-      console.log(res.data.products);
-      setDataProducts(res.data.products);
-    });
-    // Llamada de tipo POST (vamos a usar el metodo/verb POST para crear un producto)
     axios
-      .post(
-        "https://dummyjson.com/products/add",
-        //Body
-        {
-          title: "MacBook Pro M2",
-        },
-        //headers
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      .then((res) => console.log(res));
+      .get("https://dummyjson.com/products")
+      .then((res) => {
+        setProductsData(res.data.products);
+        console.log(res.data.products);
+      })
+      .catch((err) => console.log(err));
   }, []);
-  return (
-    <div>
-      {dataProducts.map((producto, index) => {
-        return (
-          <div key={producto.id} className={categoria + " " + subCategoria}>
-            <div>{producto.brand}</div>
-            <div>{producto.description}</div>
-            <div>${producto.price}</div>
-          </div>
-        );
-      })}
-    </div>
-  );
+
+  return productsData.map((product) => {
+    return (
+      <Card style={{ width: "18rem", margin: 40 }}>
+        <Card.Img variant="top" src={product.images[0]} />
+        <Card.Body>
+          <Card.Title>{product.title}</Card.Title>
+          <Card.Text>
+           {product.description}
+          </Card.Text>
+          <Button variant="primary">Hacer algo</Button>
+        </Card.Body>
+      </Card>
+    );
+  });
 };
 
-export default Card;
+export default CardComponent;
