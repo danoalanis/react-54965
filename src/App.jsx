@@ -1,5 +1,5 @@
 import './App.css';
-
+import ButtonComponent from './components/ButtonComponent';
 function App() {
 
   const myFunction = () => {
@@ -8,7 +8,7 @@ function App() {
   
   return (
     <div className="App">
-      <button onClick={myFunction}>Hola Mundo</button>
+      <ButtonComponent myFunction={myFunction} />
     </div>
   );
 }
