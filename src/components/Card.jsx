@@ -1,36 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const productos = [
-  {
-    id: 1,
-    nombre: "Producto 1",
-    descripcion: "Esta es la descripción del producto 1",
-    precio: 100,
-  },
-  {
-    id: 2,
-    nombre: "Producto 2",
-    descripcion: "Esta es la descripción del producto 2",
-    precio: 200,
-  },
-  {
-    id: 3,
-    nombre: "Producto 3",
-    descripcion: "Esta es la descripción del producto 3",
-    precio: 300,
-  },
-  {
-    id: 4,
-    nombre: "Producto 4",
-    descripcion: "Esta es la descripción del producto 5",
-    precio: 400,
-  },
-];
-
-const Card = ({ categoria, subCategoria }) => {
+// const Card = ({ categoria, subCategoria, title }) => {
+const Card = (props) => {
+  console.log(props)
   const [dataProducts, setDataProducts] = useState([]);
-
   useEffect(() => {
     // Llamada de tipo GET (vamos a usar el metodo/verb GET)
     axios.get("https://dummyjson.com/products").then((res) => {
@@ -56,9 +30,10 @@ const Card = ({ categoria, subCategoria }) => {
   }, []);
   return (
     <div>
+      Title: {props.title}
       {dataProducts.map((producto, index) => {
         return (
-          <div key={producto.id} className={categoria + " " + subCategoria}>
+          <div key={producto.id} className={props.categoria + " " + props.subCategoria}>
             <div>{producto.brand}</div>
             <div>{producto.description}</div>
             <div>${producto.price}</div>

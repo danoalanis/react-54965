@@ -1,8 +1,11 @@
 import "./App.css";
-import { useState } from "react";
+// import { useState } from "react";
 import Card from "./components/Card";
+import Contador from "./components/Contador";
+// PascalCase ---> AppComponent, CardComponent, ButtonComponent
+// camelCase ---> className, backgroundColor, etc...
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   // const [error, setError] = useState(false);
 
   // const promesa = new Promise((resolve, reject) => {
@@ -25,7 +28,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <Card />
+      {/* <Card title="Card principal" /> */}
+      <Contador />
       {/* {loading ? <div>Loading...</div> : "Ya termine de cargar"} */}
     </div>
   );
