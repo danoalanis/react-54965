@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { CartContext } from "../../context/CartContext";
 
 const CartWidget = () => {
+  const [count] = useContext(CartContext);
   return (
     <div
       style={{
@@ -13,7 +15,7 @@ const CartWidget = () => {
       }}
     >
       <FontAwesomeIcon icon={faCartShopping} />
-      <span>5</span>
+      <span>{count}</span>
     </div>
   );
 };

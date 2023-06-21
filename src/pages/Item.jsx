@@ -9,8 +9,8 @@ const Item = () => {
     (products) => products.id === parseInt(itemId)
   );
 
-  console.log(productsFilteredById);
 
+  
   return <ItemDetailContainer productsData={productsFilteredById} />;
 };
 
