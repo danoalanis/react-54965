@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ItemListContainer from "../components/ItemListContainer";
 // import { ProductsData } from "../json/Products";
-import axios from "axios";
+// import axios from "axios";
+
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 import LoaderComponent from "../components/LoaderComponent";
 
 const homeStyles = {
@@ -20,18 +22,16 @@ const Home = () => {
   const [typeError, setTypeError] = useState("");
 
   useEffect(() => {
-    axios
-      .get("https://dummyjson.com/prducts")
-      .then((res) => {
-        setProductsData(res.data.products);
+    const db = getFirestore();
+
+    const productCollection = collection(db, "products");
+    getDocs(productCollection)
+      .then((snapshot) => {
+        setProductsData(
+          snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+        );
       })
-      .catch((err) => {
-        if(err.response.status === 404)
-          {
-            setError(true)
-            setTypeError("404")
-          }
-        setError(true)})
+      .catch((error) => setError(true))
       .then(() => setLoading(false));
   }, []);
 

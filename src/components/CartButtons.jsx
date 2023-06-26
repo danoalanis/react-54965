@@ -17,8 +17,8 @@ const CartButtons = ({customStyle}) => {
   };
 
   return (
-    <div className="d-flex align-items-center flex-column">
-      <div className="d-flex w-25">
+    <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
+      <div style={{margin: "10px"}}>
         <Button
           variant="outline-secondary"
           className="rounded-0"
@@ -26,14 +26,7 @@ const CartButtons = ({customStyle}) => {
         >
           -
         </Button>
-        <span>{state}</span>
-        {/* <input
-          type="text"
-          className="form-control form-control-sm text-center rounded-0"
-          placeholder="Cantidad custom"
-          id="valueInput"
-          value="0"
-        /> */}
+        <span style={{margin: "10px", fontSize: "18px"}}>{state}</span>
         <Button
           variant="outline-secondary"
           className="rounded-0"
