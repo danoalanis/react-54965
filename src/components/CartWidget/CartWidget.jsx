@@ -4,7 +4,8 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { CartContext } from "../../context/CartContext";
 
 const CartWidget = () => {
-  const [count] = useContext(CartContext);
+  const {count} = useContext(CartContext);
+
   return (
     <div
       style={{
@@ -15,7 +16,7 @@ const CartWidget = () => {
       }}
     >
       <FontAwesomeIcon icon={faCartShopping} />
-      <span>{count}</span>
+      <span>{count.qtyItems}</span>
     </div>
   );
 };

@@ -22,9 +22,9 @@ const ProductCard = ({ productData }) => {
         {/* {productData.stock < 100 ? <div>Sin stock</div> : <CartButtons />} */}
         <div>{productData.stock < 10 ? "Ultimos Productos" : ""} </div>
         {productData.stock < 10 ? (
-          <CartButtons customStyle={customStyleNoStock} />
+          <CartButtons customStyle={customStyleNoStock} productId={productData.id}/>
         ) : (
-          <CartButtons customStyle={customStyleStock} />
+          <CartButtons customStyle={customStyleStock} productId={productData.id}/>
         )}
 
         <div
@@ -49,6 +49,20 @@ const ProductCard = ({ productData }) => {
             }}
           >
             Ir a detalle
+          </Link>
+          <Link
+            to={`/update-product/${productData.id}`}
+            style={{
+              marginTop: "10px",
+              backgroundColor: "green",
+              textDecoration: "none",
+              color: "white",
+              borderRadius: "5px",
+              fontSize: "18px",
+              padding: "10px",
+            }}
+          >
+            Modificar producto
           </Link>
         </div>
       </Card.Body>
