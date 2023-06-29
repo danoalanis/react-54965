@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { CartContext } from "../context/CartContext";
 
 const CartButtons = ({ customStyle, productId }) => {
-  const [state, setState] = useState(0);
+  const [state, setState] = useState(1);
   const { count, setCount } = useContext(CartContext);
   const handleMoreClick = () => {
     setState(state + 1);

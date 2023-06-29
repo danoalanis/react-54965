@@ -14,8 +14,22 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/">Home</Link>
-            <NavDropdown title="Categorias" id="basic-nav-dropdown">
+            <Link
+              to="/"
+              style={{
+                textDecoration: "none",
+                display: "flex",
+                alignItems: "center",
+                color: "black",
+              }}
+            >
+              Home
+            </Link>
+            <NavDropdown
+              title="Categorias"
+              id="basic-nav-dropdown"
+              
+            >
               <NavDropdown.Item>
                 <Link to="/category/smartphones">SmartPhones</Link>
               </NavDropdown.Item>

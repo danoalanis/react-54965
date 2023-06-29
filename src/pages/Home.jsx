@@ -18,6 +18,7 @@ const homeStyles = {
 const Home = () => {
   const [productsData, setProductsData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [welcome, setWelcome] = useState(true);
   const [error, setError] = useState(false);
   const [typeError, setTypeError] = useState("");
 
@@ -35,12 +36,18 @@ const Home = () => {
       .then(() => setLoading(false));
   }, []);
 
+  setTimeout(() => {
+    setWelcome(false);
+  }, 5000);
+
   return (
     <div style={homeStyles}>
       {loading ? (
         <LoaderComponent />
       ) : error ? (
         <div>Error </div>
+      ) : welcome ? (
+        <div>Bienvenido</div>
       ) : (
         <ItemListContainer productsData={productsData} />
       )}
